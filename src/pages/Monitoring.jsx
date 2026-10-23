@@ -1,0 +1,9 @@
+import React from "react";
+import { Activity, ArrowDownToLine, ArrowUpFromLine } from "lucide-react";
+import PageHeader from "../components/PageHeader";
+import { trafficData } from "../data/mockData";
+import TrafficChart from "../components/TrafficChart";
+
+export default function Monitoring() {
+  return <><PageHeader title="Network Monitoring" description="Traffic overview and monitored network activity"/><div className="metric-grid three-metrics"><article className="metric-card"><div className="metric-icon green"><Activity/></div><div className="metric-copy"><span className="metric-label">Traffic captured</span><strong className="metric-value">1.24 GB</strong><span className="metric-footnote">Sample data</span></div></article><article className="metric-card"><div className="metric-icon blue"><ArrowDownToLine/></div><div className="metric-copy"><span className="metric-label">Incoming</span><strong className="metric-value">824 MB</strong><span className="metric-footnote">Sample data</span></div></article><article className="metric-card"><div className="metric-icon purple"><ArrowUpFromLine/></div><div className="metric-copy"><span className="metric-label">Outgoing</span><strong className="metric-value">416 MB</strong><span className="metric-footnote">Sample data</span></div></article></div><section className="panel standalone-panel"><div className="panel-heading"><h2>Traffic over time</h2><span className="sample-label">Simulated data</span></div><div className="monitoring-chart"><TrafficChart data={trafficData}/></div></section><section className="panel standalone-panel"><div className="panel-heading"><h2>Monitoring status</h2></div><p className="muted-copy">The UI is ready for the FastAPI traffic endpoint. Actual packet collection and live updates must come from the backend monitoring service.</p></section></>;
+}
